@@ -1,0 +1,156 @@
+[gd_scene load_steps=17 format=3 uid="uid://4bd67x1yshpr"]
+
+[ext_resource type="Script" uid="uid://cpyo3m660yyt6" path="res://scenes/command_room.gd" id="1_0f83r"]
+[ext_resource type="Script" uid="uid://b1wgmawbiaqb5" path="res://scripts/interact_area.gd" id="1_1c0hg"]
+[ext_resource type="Texture2D" uid="uid://bfmc2ek2m7a8e" path="res://sprites/props/BotaoVermelho.png" id="2_1c0hg"]
+[ext_resource type="Script" uid="uid://ck5sy62qpk4hf" path="res://scripts/DialogBox.gd" id="3_5v2ie"]
+[ext_resource type="Texture2D" uid="uid://d2mace1aj8tsf" path="res://sprites/props/BotaoAmareloPressionado.png" id="3_iqyy2"]
+[ext_resource type="Texture2D" uid="uid://6f0igdy7h56v" path="res://sprites/hud-box.png" id="4_1c0hg"]
+[ext_resource type="AudioStream" uid="uid://dvi0hw6rhr4jc" path="res://sprites/Soundeffects/abriUI.ogg" id="6_iqyy2"]
+[ext_resource type="Texture2D" uid="uid://d08saqxl63d0k" path="res://sprites/dialoguebox/caixa_dialogo.png" id="7_7xjnu"]
+[ext_resource type="Texture2D" uid="uid://dh7pcoqd0jwwx" path="res://sprites/buttons/ButtonStyle1.png" id="7_sg5pq"]
+[ext_resource type="Texture2D" uid="uid://cyqpf4qm588cw" path="res://sprites/buttons/ButtonStyle2.png" id="8_7xjnu"]
+[ext_resource type="FontFile" uid="uid://cmn4y7utp2r4j" path="res://fonts/Jersey15-Regular.ttf" id="10_gn1p4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sg5pq"]
+size = Vector2(12, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sg5pq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_1c0hg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_iqyy2")
+}],
+"loop": false,
+"name": &"press",
+"speed": 1.5
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gn1p4"]
+texture = ExtResource("7_sg5pq")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0f83r"]
+texture = ExtResource("8_7xjnu")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5yf1n"]
+texture = ExtResource("8_7xjnu")
+
+[node name="CommandRoom" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_0f83r")
+
+[node name="InteractArea" type="Area2D" parent="."]
+position = Vector2(583, 304)
+collision_layer = 3
+script = ExtResource("1_1c0hg")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea"]
+position = Vector2(1, 3)
+shape = SubResource("RectangleShape2D_sg5pq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="InteractArea"]
+position = Vector2(0.5000072, 1.500001)
+scale = Vector2(1.0624996, 1.1874996)
+sprite_frames = SubResource("SpriteFrames_sg5pq")
+animation = &"press"
+
+[node name="DialogBox" type="Control" parent="."]
+anchors_preset = 0
+script = ExtResource("3_5v2ie")
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogBox"]
+visible = false
+z_index = 2
+position = Vector2(586, 289)
+scale = Vector2(1.6455069, 0.41159955)
+texture = ExtResource("4_1c0hg")
+
+[node name="AudioOpenUI" type="AudioStreamPlayer" parent="DialogBox"]
+stream = ExtResource("6_iqyy2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+layout_direction = 4
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 0.409
+anchor_right = 0.508
+anchor_bottom = 0.409
+offset_left = -585.216
+offset_top = -265.032
+offset_right = -585.216
+offset_bottom = -265.032
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+mouse_filter = 1
+texture = ExtResource("7_7xjnu")
+
+[node name="Button" type="Button" parent="CanvasLayer/NinePatchRect"]
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.86300004
+anchor_top = 0.65500003
+anchor_right = 0.86300004
+anchor_bottom = 0.65500003
+offset_left = -11.997009
+offset_top = 8.5
+offset_right = 44.5
+offset_bottom = 44.009995
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_gn1p4")
+theme_override_font_sizes/font_size = 27
+theme_override_styles/normal = SubResource("StyleBoxTexture_gn1p4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_0f83r")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5yf1n")
+text = "OK"
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect"]
+z_index = 3
+layout_mode = 0
+offset_left = 21.5
+offset_top = 17.0
+offset_right = 177.5
+offset_bottom = 287.5
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_gn1p4")
+theme_override_font_sizes/font_size = 27
+vertical_alignment = 1
+
+[node name="TimerContainer" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimerBackground" type="TextureRect" parent="CanvasLayer/TimerContainer"]
+layout_mode = 0
+offset_left = 893.0
+offset_top = 45.0
+offset_right = 1045.0
+offset_bottom = 101.0
+texture = ExtResource("7_sg5pq")
+
+[node name="TimerLabel" type="Label" parent="CanvasLayer/TimerContainer"]
+z_index = 5
+layout_mode = 0
+offset_left = 904.0
+offset_top = 50.0
+offset_right = 1034.0
+offset_bottom = 97.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="CanvasLayer/TimerContainer"]

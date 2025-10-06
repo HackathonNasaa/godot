@@ -1,0 +1,31 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Projet: Sideralis"
+run/main_scene="uid://c20vtogjffq3s"
+config/features=PackedStringArray("4.5", "GL Compatibility")
+config/icon="res://sprites/icon.svg"
+
+[autoload]
+
+AsteroidManager="*res://scripts/asteroid_manager.gd"
+GameRules="*res://scripts/GameRules.gd"
+GameState="*res://scripts/GameState.gd"
+Languagemanager="*res://scripts/language_manager.gd"
+Global="*res://scripts/global.gd"
+MusicManager="*res://scripts/MusicManager.gd"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

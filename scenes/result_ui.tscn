@@ -1,0 +1,87 @@
+[gd_scene load_steps=8 format=3 uid="uid://1abvvrepkikf"]
+
+[ext_resource type="Script" uid="uid://dcaccxkow1s7u" path="res://scripts/ResultUI.gd" id="1_wtowj"]
+[ext_resource type="Texture2D" uid="uid://6f0igdy7h56v" path="res://sprites/hud-box.png" id="2_3vsus"]
+[ext_resource type="Texture2D" uid="uid://dh7pcoqd0jwwx" path="res://sprites/buttons/ButtonStyle1.png" id="3_wtowj"]
+[ext_resource type="Texture2D" uid="uid://cyqpf4qm588cw" path="res://sprites/buttons/ButtonStyle2.png" id="4_3vsus"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5v2ie"]
+texture = ExtResource("3_wtowj")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dpv1s"]
+texture = ExtResource("4_3vsus")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cjc43"]
+texture = ExtResource("4_3vsus")
+
+[node name="ResultUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_wtowj")
+
+[node name="DialogBox" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="DialogBox"]
+visible = false
+z_index = 2
+position = Vector2(586, 289)
+scale = Vector2(1.6455069, 0.41159955)
+texture = ExtResource("2_3vsus")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer"]
+layout_direction = 4
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 0.409
+anchor_right = 0.508
+anchor_bottom = 0.409
+offset_left = -89.216
+offset_top = -29.032013
+offset_right = 129.784
+offset_bottom = 28.967987
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+texture = ExtResource("3_wtowj")
+patch_margin_left = 4
+patch_margin_top = 5
+patch_margin_right = 5
+patch_margin_bottom = 4
+
+[node name="Label" type="Label" parent="CanvasLayer/NinePatchRect"]
+z_index = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 5.0
+offset_top = 7.0
+offset_right = -4.0
+offset_bottom = -22.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+
+[node name="Button" type="Button" parent="CanvasLayer/NinePatchRect"]
+z_index = 5
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.897
+anchor_top = 0.79300004
+anchor_right = 0.897
+anchor_bottom = 0.79300004
+offset_left = -17.443008
+offset_top = -7.9940033
+offset_right = 17.556992
+offset_bottom = 8.005997
+focus_mode = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("StyleBoxTexture_5v2ie")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_dpv1s")
+theme_override_styles/hover = SubResource("StyleBoxTexture_cjc43")
+text = "OK"

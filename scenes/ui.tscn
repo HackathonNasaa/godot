@@ -1,0 +1,153 @@
+[gd_scene load_steps=22 format=3 uid="uid://c20vtogjffq3s"]
+
+[ext_resource type="Script" uid="uid://dgnhr6ufdrxr" path="res://scripts/ui.gd" id="1_wm3ai"]
+[ext_resource type="Texture2D" uid="uid://dh7pcoqd0jwwx" path="res://sprites/buttons/ButtonStyle1.png" id="3_cof4p"]
+[ext_resource type="Texture2D" uid="uid://cyqpf4qm588cw" path="res://sprites/buttons/ButtonStyle2.png" id="4_f7tlh"]
+[ext_resource type="FontFile" uid="uid://cmn4y7utp2r4j" path="res://fonts/Jersey15-Regular.ttf" id="4_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://n8biwqd2habh" path="res://sprites/perso/dormindo/AnimacaoDormeCai1.png" id="7_qsv74"]
+[ext_resource type="Texture2D" uid="uid://c2p03j07r7a5q" path="res://sprites/perso/dormindo/AnimacaoDormeCai2.png" id="8_h1mc3"]
+[ext_resource type="Texture2D" uid="uid://ds1nhm6kvb6as" path="res://sprites/perso/dormindo/AnimacaoDormeCai3.png" id="9_cof4p"]
+[ext_resource type="Texture2D" uid="uid://c46cugld002nr" path="res://sprites/perso/dormindo/AnimacaoDormeCai4.png" id="10_f7tlh"]
+[ext_resource type="Texture2D" uid="uid://cq6s04c1bxxs5" path="res://sprites/perso/dormindo/AnimacaoDormeCai5.png" id="11_8k7j3"]
+[ext_resource type="Texture2D" uid="uid://b25s7diomb1fq" path="res://sprites/perso/dormindo/AnimacaoDormeCai6.png" id="12_jkdwc"]
+[ext_resource type="Texture2D" uid="uid://epbl60a6oyt3" path="res://sprites/perso/dormindo/AnimacaoDormeCai7.png" id="13_rlppe"]
+[ext_resource type="Texture2D" uid="uid://bkp25jdgj314" path="res://sprites/bg/menu_inicial.png" id="14_qsv74"]
+[ext_resource type="Texture2D" uid="uid://dsl0xj465jgy4" path="res://sprites/perso/dormindo/AnimacaoDormeCai8.png" id="14_ycmcx"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6rmj2"]
+texture = ExtResource("3_cof4p")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8k7j3"]
+texture = ExtResource("4_f7tlh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vsj0x"]
+texture = ExtResource("4_f7tlh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jkdwc"]
+texture = ExtResource("4_f7tlh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_f7tlh"]
+texture = ExtResource("4_f7tlh")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlppe"]
+texture = ExtResource("4_f7tlh")
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kupmu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_qsv74")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_h1mc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cof4p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_f7tlh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_8k7j3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_jkdwc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_rlppe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ycmcx")
+}],
+"loop": true,
+"name": &"sleep",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_catpy"]
+size = Vector2(54.5, 56)
+
+[node name="UI" type="CanvasLayer"]
+layer = 0
+follow_viewport_enabled = true
+script = ExtResource("1_wm3ai")
+
+[node name="MenuContainer" type="Control" parent="."]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 120.0
+offset_top = 77.0
+offset_right = 775.0
+offset_bottom = 365.0
+
+[node name="BtnPlay" type="Button" parent="MenuContainer"]
+layout_mode = 0
+offset_left = 256.0
+offset_top = 72.0
+offset_right = 404.0
+offset_bottom = 137.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_h1mc3")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_6rmj2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8k7j3")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vsj0x")
+text = "PLAY"
+
+[node name="LanguageContainer" type="Control" parent="."]
+z_index = 2
+layout_mode = 3
+anchors_preset = 0
+offset_left = 133.0
+offset_top = 34.0
+offset_right = 770.0
+offset_bottom = 411.0
+
+[node name="BtnPortuguese" type="Button" parent="LanguageContainer"]
+layout_mode = 0
+offset_left = 232.0
+offset_top = 117.0
+offset_right = 407.0
+offset_bottom = 182.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_h1mc3")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_6rmj2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jkdwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_f7tlh")
+text = "PORTUGUESE"
+
+[node name="BtnEnglish" type="Button" parent="LanguageContainer"]
+layout_mode = 0
+offset_left = 244.0
+offset_top = 190.0
+offset_right = 392.0
+offset_bottom = 255.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_h1mc3")
+theme_override_font_sizes/font_size = 34
+theme_override_styles/normal = SubResource("StyleBoxTexture_6rmj2")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_jkdwc")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rlppe")
+text = "ENGLISH"
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="anim" type="AnimatedSprite2D" parent="CharacterBody2D"]
+z_index = 1
+position = Vector2(197, 499)
+scale = Vector2(5.3491206, 5.0798345)
+sprite_frames = SubResource("SpriteFrames_kupmu")
+animation = &"sleep"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(115, 521)
+shape = SubResource("RectangleShape2D_catpy")
+
+[node name="MenuInicial" type="Sprite2D" parent="."]
+position = Vector2(576.00006, 324.0001)
+scale = Vector2(6.7368417, 7.7142854)
+texture = ExtResource("14_qsv74")
+
+[connection signal="pressed" from="MenuContainer/BtnPlay" to="." method="_on_btn_play_pressed"]

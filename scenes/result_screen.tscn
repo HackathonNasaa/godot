@@ -1,0 +1,132 @@
+[gd_scene load_steps=19 format=3 uid="uid://uf13dfu2q5oq"]
+
+[ext_resource type="Script" uid="uid://cci84n1ckoy64" path="res://scripts/result_screen.gd" id="1_p64tj"]
+[ext_resource type="Texture2D" uid="uid://brwwl36pjehja" path="res://sprites/final/Planeta.png" id="1_y7kih"]
+[ext_resource type="Shader" uid="uid://bcrki2c2shtf3" path="res://scenes/game.gdshader" id="2_jvw6c"]
+[ext_resource type="Texture2D" uid="uid://dn4fwib8xoejd" path="res://sprites/bg/bg-space.png" id="3_7yvg5"]
+[ext_resource type="Texture2D" uid="uid://be4vnvsqn4shi" path="res://sprites/final/explosao/ExplosaoAnimacao1.png" id="3_cba7x"]
+[ext_resource type="Texture2D" uid="uid://c5nde3jaugtae" path="res://sprites/final/explosao/ExplosaoAnimacao2.png" id="4_o2u88"]
+[ext_resource type="Texture2D" uid="uid://cbwpo023ygi74" path="res://sprites/final/explosao/ExplosaoAnimacao3.png" id="5_jvw6c"]
+[ext_resource type="Texture2D" uid="uid://bd7r5oldhtu7a" path="res://sprites/final/explosao/ExplosaoAnimacao4.png" id="6_7yvg5"]
+[ext_resource type="Texture2D" uid="uid://bk7ee8aqp1gcl" path="res://sprites/final/explosao/ExplosaoAnimacao5.png" id="7_ns57g"]
+[ext_resource type="Texture2D" uid="uid://cmojq36woru3l" path="res://sprites/final/explosao/ExplosaoAnimacao6.png" id="8_iojyl"]
+[ext_resource type="Texture2D" uid="uid://ce6s6jowlexwn" path="res://sprites/final/explosao/ExplosaoAnimacao7.png" id="9_62j3s"]
+[ext_resource type="Texture2D" uid="uid://c2mflagqqbr8j" path="res://sprites/final/explosao/ExplosaoAnimacao8.png" id="10_0a5f6"]
+[ext_resource type="Texture2D" uid="uid://xahsgcgtj165" path="res://sprites/final/explosao/ExplosaoAnimacao9.png" id="11_42umv"]
+[ext_resource type="Texture2D" uid="uid://ftqp402twauf" path="res://sprites/final/explosao/ExplosaoAnimacao10.png" id="12_16632"]
+[ext_resource type="Texture2D" uid="uid://dvut42chn75ui" path="res://sprites/final/explosao/ExplosaoAnimacao11.png" id="13_k7thg"]
+[ext_resource type="Texture2D" uid="uid://duf8ayaci8cvv" path="res://sprites/final/MeteoroCarbonacio.png" id="14_vp5su"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ns57g"]
+shader = ExtResource("2_jvw6c")
+shader_parameter/SPEED = 0.1
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6p7tg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_y7kih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cba7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o2u88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jvw6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7yvg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ns57g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iojyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_62j3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0a5f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_42umv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_16632")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k7thg")
+}],
+"loop": true,
+"name": &"defeat",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_vp5su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cba7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o2u88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_jvw6c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_7yvg5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ns57g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_iojyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_62j3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_0a5f6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_42umv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_16632")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_k7thg")
+}],
+"loop": true,
+"name": &"victory",
+"speed": 5.0
+}]
+
+[node name="ResultScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p64tj")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_ns57g")
+layout_mode = 0
+offset_left = -60.0
+offset_top = -15.0
+offset_right = 1413.0
+offset_bottom = 780.0
+texture = ExtResource("3_7yvg5")
+stretch_mode = 1
+
+[node name="ResultAnimation" type="AnimatedSprite2D" parent="."]
+position = Vector2(602, 328)
+scale = Vector2(5.054688, 5.054688)
+sprite_frames = SubResource("SpriteFrames_6p7tg")
+animation = &"victory"
